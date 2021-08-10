@@ -1,6 +1,6 @@
 {
-    "prefix": "#", // bot prefix | Required | string
-    "minimal-member-gc": "10", // jika bot di invite ke grup chat berapa minimal member agar bot bisa masuk | Required | number
-    "nelfon-block": true, // jika bot menerima panggilan masuk bot akan blokir nomer yang menelpon atau tidak? | Required | boolean
-    "sticker-pack-name": "My Bot" // nama pack sticker saat user membuat sticker dengan bot anda | Required | string
+    "prefix": "bot prefix | Required | string",
+    "minimal-member-gc": "jika bot di invite ke grup chat berapa minimal member agar bot bisa masuk | Required | number",
+    "nelfon-block": "jika bot menerima panggilan masuk bot akan blokir nomer yang menelpon atau tidak? | Required | boolean",
+    "sticker-pack-name": "nama pack sticker saat user membuat sticker dengan bot anda | Required | string"
 }
