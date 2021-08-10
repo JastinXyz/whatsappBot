@@ -4,10 +4,10 @@
 2. open `config.json` dan setting di sana. ( jika kebingungan anda dapat membuka `config-example.json` disana ada petunjuk )
 3. open terminal/console, run command `npm i`
 4. setelah semua selesai anda dapat run project dengan `node .`
-5. lalu scan qr nya. Jika tidak muncul qr anda tidak melakukan cara di atas. lel
 
 # to do
 - membuat lebih banyak cmd
+- fix more bug
 
 # Thx To
 - [Zhycorp](https://github.com/Zhycorp/whatsapp-bot)
