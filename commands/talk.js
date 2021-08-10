@@ -2,7 +2,7 @@ const { opts } = require("../config.json");
 const axios = require("axios")
 const userAgents = require('../tools/user-agents.json')
 exports.run = (client, message) => {
-
+if(!message.body) message.reply(message.from, `Gunakan: *${prefix}talk <message>*\n\n* Tanpa < >`, message.id)
      const get = await axios(`https://uptime-glitch-zril.glitch.me/api/simi?text=${message.body}`, {
         method: "GET",
         headers: {
