@@ -1,26 +1,31 @@
-const { prefix } = require("../config.json");
-const axios = require("axios")
-
+const { prefix } = require('../config.json')
 const userAgents = require('../tools/user-agents.json')
-exports.run = async (client, message) => {
-if(!message.body) client.reply(message.from, `Gunakan: *${prefix}talk <message>*\n\n* Tanpa < >`, message.id)
-     const get = await axios(`https://uptime-glitch-zril.glitch.me/api/simi?text=${message.body}`, {
-        method: "GET",
-        headers: {
-        "User-Agent": userAgents[Math.floor(Math.random() * userAgents.length)]
-        }
+const axios = require('axios')
+exports.run = async (client, message, args) => {
+  if (!args[0]) {
+    return client.reply(message.from, `Gunakan: *${prefix}talk <message>*\n\n* Tanpa < >`, message.id)
+  } else try {
+    const get = await axios(`https://api.simsimi.net/v1/?text=${message.body.slice(6)}&lang=id&cf=false`,{
+      headers: {
+        "User-Agent": userAgents[Math.floor(Math.random() * userAgents.lenght)]
+      }
     })
-    const res = get.data;
-    if (!res) client.reply(message.from, 'ERR: Ada kesalahan di code\n( EMPTY JSON RESPONSE [ get.data | commands/talk.js ] )', message.id)
-    const finalres = res.response
-    if (!finalres) client.reply(message.from, 'ERR: Ada kesalahan di code\n( EMPTY JSON RESPONSE [ res.response | command/talk.js ] )', message.id)
-client.reply(message.from, finalres, message.id)
-
-};
+    
+    const json = get.data
+    const response = json.success
+    client.reply(message.from, response, message.id)
+  } catch (e) {
+    console.log(e)
+   client.reply(message.from, e, message.id)
+  }
+    
+  
+  
+}
 
 exports.help = {
-    name: "Talk",
-    description: "Talk with bot. Seperti chat bot",
-    usage: `${prefix}talk (message)`,
-    cooldown: 5
-};
+  name: "Talk",
+  description: "Talk with bot. Seperti Chat Bot",
+  usage: `${prefix}talk <message>`,
+  cooldown: 0
+}
