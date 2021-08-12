@@ -1,6 +1,8 @@
 {
     "prefix": "#", 
-    "minimal-member-gc": "10", 
-    "nelfon-block": true,
-    "sticker-pack-name": "My Bot" 
+    "minimalMemberGc": "10", 
+    "nelfonBlock": true,
+    "stickerPackName": "JSTN BOT",
+    "zeksApiKey": "apivinz"
 }
+
