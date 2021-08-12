@@ -27,5 +27,5 @@ exports.help = {
   name: "Talk",
   description: "Talk with bot. Seperti Chat Bot",
   usage: `${prefix}talk <message>`,
-  cooldown: 0
+  cooldown: 5
 }
