@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
   if (!args[0]) {
     return client.reply(message.from, `Gunakan: *${prefix}talk <message>*\n\n* Tanpa < >`, message.id)
   } else try {
-    const get = await axios(`https://api.zeks.xyz/api/simi?apikey=${zeksApiKey}&text=${message.body.slice(6)}`,{
+    const get = await axios(`https://api.izo.my.id/sim?text=${message.body.slice(6)}`,{
       headers: {
         "User-Agent": userAgents[Math.floor(Math.random() * userAgents.lenght)]
       }
