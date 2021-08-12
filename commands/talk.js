@@ -1,12 +1,12 @@
-const { prefix } = require('../config.json')
+const { prefix, zeksApiKey } = require('../config.json')
 const userAgents = require('../tools/user-agents.json')
 const axios = require('axios')
-const key = process.env.zeks
+
 exports.run = async (client, message, args) => {
   if (!args[0]) {
     return client.reply(message.from, `Gunakan: *${prefix}talk <message>*\n\n* Tanpa < >`, message.id)
   } else try {
-    const get = await axios(`https://api.zeks.xyz/api/simi?apikey=${key}&text=${message.body.slice(6)}`,{
+    const get = await axios(`https://api.zeks.xyz/api/simi?apikey=${zeksApiKey}&text=${message.body.slice(6)}`,{
       headers: {
         "User-Agent": userAgents[Math.floor(Math.random() * userAgents.lenght)]
       }
