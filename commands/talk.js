@@ -1,22 +1,22 @@
 const { prefix } = require('../config.json')
 const userAgents = require('../tools/user-agents.json')
 const axios = require('axios')
+const key = process.env.zeks
 exports.run = async (client, message, args) => {
   if (!args[0]) {
     return client.reply(message.from, `Gunakan: *${prefix}talk <message>*\n\n* Tanpa < >`, message.id)
   } else try {
-    const get = await axios(`https://api.simsimi.net/v1/?text=${message.body.slice(6)}&lang=id&cf=false`,{
+    const get = await axios(`https://api.zeks.xyz/api/simi?apikey=${key}&text=${message.body.slice(6)}`,{
       headers: {
         "User-Agent": userAgents[Math.floor(Math.random() * userAgents.lenght)]
       }
     })
     
     const json = get.data
-    const response = json.success
+    const response = json.result
     client.reply(message.from, response, message.id)
   } catch (e) {
     console.log(e)
-   client.reply(message.from, e, message.id)
   }
     
   
