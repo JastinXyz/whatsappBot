@@ -1,6 +1,8 @@
 {
     "prefix": "bot prefix | Required | string",
-    "minimal-member-gc": "jika bot di invite ke grup chat berapa minimal member agar bot bisa masuk | Required | number",
-    "nelfon-block": "jika bot menerima panggilan masuk bot akan blokir nomer yang menelpon atau tidak? | Required | boolean",
-    "sticker-pack-name": "nama pack sticker saat user membuat sticker dengan bot anda | Required | string"
+    "minimalMemberGc": "jika bot di invite ke grup chat berapa minimal member agar bot bisa masuk | Required | number",
+    "nelfonBlock": "jika bot menerima panggilan masuk bot akan blokir nomer yang menelpon atau tidak? | Required | boolean",
+    "stickerPackName": "nama pack sticker saat user membuat sticker dengan bot anda | Required | string",
+    "zeksApiKey": "API key yang di dapatkan dari https://zeks.xyz. API Key ini untuk cmd talk, nulis, meme | Required | string"
 }
+
