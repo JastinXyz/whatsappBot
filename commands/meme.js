@@ -1,10 +1,10 @@
-const { prefix } = require('../config.json')
+const { prefix, zeksApiKey } = require('../config.json')
 const userAgents = require('../tools/user-agents.json')
 const axios = require('axios')
-const key = process.env.zeks
+
 exports.run = async (client, message) => {
 try {
-    const get = await axios(`https://api.zeks.xyz/api/memeindo?apikey=${key}`,{
+    const get = await axios(`https://api.zeks.xyz/api/memeindo?apikey=${zeksApiKey}`,{
       headers: {
         "User-Agent": userAgents[Math.floor(Math.random() * userAgents.lenght)]
       }
