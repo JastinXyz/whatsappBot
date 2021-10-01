@@ -1,4 +1,4 @@
-const opts = require('./config.json')
+const { prefix, minimalMemberGc, nelfonBlock, stickerPackName, zeksApiKey, instagramSessionID} = require('./config.json')
 const prefix = opts.prefix
 const whatsapp = require("@open-wa/wa-automate");
 const fs = require("fs");
@@ -38,16 +38,17 @@ function start(client) {
 // bot jika di invite ke grup
 client.onAddedToGroup(((chat) => {
             let totalMem = chat.groupMetadata.participants.length
-            if (totalMem < opts.minimal-member-gc) { 
-            	client.sendText(chat.id, `Member grup minimal ada ${opts.minimal-member-gc} agar bot bisa masuk. Sedangkan member grup itu saat ini adalah ${totalMem}`).then(() => client.leaveGroup(chat.id)).then(() => client.deleteChat(chat.id))
+            if (totalMem < minimalMemberGc) { 
+            	client.sendText(chat.id, `Member grup minimal ada ${minimalMemberGc} agar bot bisa masuk. Sedangkan member grup itu saat ini adalah ${totalMem}`).then(() => client.leaveGroup(chat.id)).then(() => client.deleteChat(chat.id))
             } else {
                 client.sendText(chat.groupMetadata.id, `Halo para member grup *${chat.contact.name}*, salken member baru tapi aku bot. Kalian bisa melihat semua command memakai *${prefix}help*`)
             }
         }))
 
         // nelpon = block ( bisa di atur di config.json bagian nelfon-block )
+       
         client.onIncomingCall(( async (call) => {
-            if(opts.nelfon-block === true ) { 
+            if(nelfonBlock === true ) { 
               await client.sendText(call.peerJid, '[ BOT ] Maaf, bot tidak menerima panggilan. Nelfon = Block!')
             .then(() => client.contactBlock(call.peerJid)) 
             } else {
